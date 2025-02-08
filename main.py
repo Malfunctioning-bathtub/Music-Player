@@ -7,30 +7,21 @@ init()
 
 root = tk.Tk()
 
-music.load("Music-player/piddling-simple-drums-full-house_126bpm.wav")
+music.load("piddling-simple-drums-full-house_126bpm.wav")
 
-
-
-def onPlayButtonPressed():
-    music.unpause()
-    if not music.get_busy():
-        music.play()
+def onMainButtonPressed():
+    if music.get_busy():
+        music.pause()
     else:
-        pass
+        music.unpause()
+        if not music.get_busy():
+            music.play()
 
 
 
-def onPauseButtonPressed():
-    music.pause()
 
-
-
-playButton = tk.Button(root, text='Play', width=25, command=onPlayButtonPressed)
+playButton = tk.Button(root, text='Play', width=25, command=onMainButtonPressed)
 playButton.pack()
-
-pauseButton = tk.Button(root, text='Pause', width=25, command=onPauseButtonPressed)
-pauseButton.pack()
-
 
 
 root.mainloop()
