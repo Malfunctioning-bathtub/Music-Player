@@ -9,8 +9,16 @@ root = tk.Tk()
 
 music.load("Music-player/piddling-simple-drums-full-house_126bpm.wav")
 
+
+
 def onPlayButtonPressed():
-    music.play()
+    music.unpause()
+    if not music.get_busy():
+        music.play()
+    else:
+        pass
+
+
 
 def onPauseButtonPressed():
     music.pause()
